@@ -30,7 +30,7 @@ public class DBUtil {
     public boolean do_update(String sql) throws Exception {
         try {
             String dbPath = Constants.DATABASEPATH + ConfigUtils.getType("sqlite.db.path");
-            logger.info("dbpath={}", dbPath);
+            ////logger.info("dbpath={}", dbPath);
             Class.forName("org.sqlite.JDBC");
             Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
             Statement stat = conn.createStatement();
@@ -53,7 +53,7 @@ public class DBUtil {
         ResultSet rs = null;
         try {
             String dbPath = Constants.DATABASEPATH + ConfigUtils.getType("sqlite.db.path");
-            logger.info("dbpath={}", dbPath);
+            ////logger.info("dbpath={}", dbPath);
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
             pstmt = conn.prepareStatement(sqlPage.toString());
@@ -100,7 +100,7 @@ public class DBUtil {
         Integer var8;
         try {
             String dbPath = Constants.DATABASEPATH + ConfigUtils.getType("sqlite.db.path");
-            logger.info("dbpath={}", dbPath);
+            //logger.info("dbpath={}", dbPath);
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
             stmt = conn.createStatement();
