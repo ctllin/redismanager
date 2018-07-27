@@ -1,0 +1,1 @@
+<%response.sendRedirect("treesoft/login");%>

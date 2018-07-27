@@ -81,7 +81,7 @@ public class LoginController {
             String identifyingCode = "0";
 
             try {
-                Resource resource = new ClassPathResource("application.properties");
+                Resource resource = new ClassPathResource("config.properties");
                 Properties props = PropertiesLoaderUtils.loadProperties(resource);
                 identifyingCode = (String)props.get("identifyingCode");
             } catch (IOException var18) {
