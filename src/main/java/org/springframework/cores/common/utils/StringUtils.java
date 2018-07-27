@@ -132,6 +132,8 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     public static void main(String[] args) {
         System.out.println( MD5("ctllin"+ ConfigUtils.getType("md5.pass.encrypt.str")+"ctl"));
         System.out.println( MD5("ctllin"+ ConfigUtils.getType("md5.pass.encrypt.str")+"admin"));
+        System.out.println( MD5("treesofttreesoft"+"admin"));
+        System.out.println( MD5("treesofttreesoft"+ "treesoft"));
 
     }
 }
