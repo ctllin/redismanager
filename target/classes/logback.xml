@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- 定义日志文件路径 -->
+    <property name="LOG_HOME" value="logs" />
+    <!-- 控制台输出 -->
+    <appender name="StdOut" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别 从左显示5个字符宽度 %msg：日志消息，%n是换行符-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{200} - %msg</pattern>-->
+            <pattern>[%d{HH:mm:ss}] [%logger.%M\(%F:%L\)] %msg%n</pattern>
+        </layout>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss SSS} %-5level %logger{50}-%msg%n
+            </pattern>
+            <immediateFlush>true</immediateFlush>
+            <charset class="java.nio.charset.Charset">utf-8</charset>
+        </encoder>
+    </appender>
+    
+    <!-- all日志文件 -->
+    <appender name="ALL"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/all/all.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/all/all.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>50</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <ImmediateFlush>true</ImmediateFlush>
+            <charset>utf-8</charset>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss SSS}] [%logger.%M\(%F:%L\)] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- error日志文件 -->
+    <appender name="ERROR"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/error/error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/error/error.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>50</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <ImmediateFlush>true</ImmediateFlush>
+            <charset>utf-8</charset>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss SSS}] [%logger.%M\(%F:%L\)] %msg%n</pattern>
+        </encoder>
+        <!-- 日志过滤器 -->  
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>  
+            <onMatch>ACCEPT</onMatch>  
+            <onMismatch>DENY</onMismatch>  
+        </filter> 
+    </appender>
+    <!-- INFO日志文件 -->
+    <appender name="INFO"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/info/info.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/info/info.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>50</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <ImmediateFlush>true</ImmediateFlush>
+            <charset>utf-8</charset>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss SSS}] [%logger.%M\(%F:%L\)] %msg%n</pattern>
+        </encoder>
+        <!-- 日志过滤器 -->  
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>  
+            <onMatch>ACCEPT</onMatch>  
+            <onMismatch>DENY</onMismatch>  
+        </filter> 
+    </appender>
+    <!-- WARN日志文件 -->
+    <appender name="WARN"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/warn/warn.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/warn/warn.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>50</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <ImmediateFlush>true</ImmediateFlush>
+            <charset>utf-8</charset>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss SSS}] [%logger.%M\(%F:%L\)] %msg%n</pattern>
+        </encoder>
+        <!-- 日志过滤器 -->  
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>  
+            <onMatch>ACCEPT</onMatch>  
+            <onMismatch>DENY</onMismatch>  
+        </filter> 
+    </appender>
+    
+    <!-- 配置 jar包日志级别 -->
+      <!-- 
+      logger主要用于存放日志对象，也可以定义日志类型、级别
+      name：表示匹配的logger类型前缀，也就是包的前半部分
+      level：要记录的日志级别，包括 TRACE < DEBUG < INFO < WARN < ERROR
+      additivity：作用在于children-logger是否使用 rootLogger配置的appender进行输出，false：表示只用当前logger的appender-ref，true：表示当前logger的appender-ref和rootLogger的appender-ref都有效
+      -->
+    <logger name="org.mybatis" level="DEBUG"></logger>
+    <!-- <logger name="org.mybatis" level="WARN"></logger>  -->
+    <!-- <logger name="net.sf.ehcache" level="WARN"></logger> -->
+    <logger name="org.springframework" level="INFO"></logger>
+    <logger name="ch.qos.logback" level="INFO"></logger>
+    <logger name="org.quartz" level="INFO"></logger>
+    <logger name="org.apache.http" level="INFO"></logger>
+    <!--  SQL语句，需要把级别设置为DEBUG -->
+    <!-- <logger name="com.hanshow.distribution.core.mapper" level="WARN"></logger> -->
+
+    <!--日志打印的包的范围，及分类日志文件存储 -->  
+    <logger name="org" additivity="false">
+        <level value="DEBUG" />  
+        <appender-ref ref="StdOut"/>  
+        <appender-ref ref="ALL"/>  
+        <appender-ref ref="ERROR"/>  
+        <appender-ref ref="INFO" />  
+        <appender-ref ref="WARN" />  
+    </logger>
+    <logger name="com" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="StdOut"/>
+        <appender-ref ref="ALL"/>
+        <appender-ref ref="ERROR"/>
+        <appender-ref ref="INFO" />
+        <appender-ref ref="WARN" />
+    </logger>
+    <!-- 日志输出级别 TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF -->
+    <root level="DEBUG">
+        <appender-ref ref="StdOut" />
+        <appender-ref ref="ALL"/>
+        <appender-ref ref="ERROR"/>
+        <appender-ref ref="INFO" />
+        <appender-ref ref="WARN" />
+    </root>  
+
+</configuration>
