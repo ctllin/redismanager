@@ -56,7 +56,7 @@ function initData(){
 	rownumbers:true,
 	pageNumber:1,
 	pageSize : 20,
-	pageList : [ 10, 20, 30, 40, 50 ],
+	pageList : [ 10, 20, 30, 40, 50, 100, 200, 1000 ],
 	singleSelect:false,
     columns:[[    
 	  	{field:'TREESOFTPRIMARYKEY',checkbox:true}, 
