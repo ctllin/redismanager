@@ -71,7 +71,7 @@ public class LoginController {
     public String loginVaildate(HttpServletRequest request, HttpServletResponse response) {
         String username = request.getParameter("username").toLowerCase();
         String password = request.getParameter("password").toLowerCase();
-        String captcha = request.getParameter("captcha").toLowerCase();
+        //String captcha = request.getParameter("captcha").toLowerCase();
         username = StringEscapeUtils.escapeHtml4(username.trim());
         HttpSession session = request.getSession(true);
         String cap = (String)session.getAttribute("KAPTCHA_SESSION_KEY");
@@ -88,7 +88,8 @@ public class LoginController {
                 var18.printStackTrace();
             }
 
-            if (identifyingCode.equals("1") && !captcha.equals(cap)) {
+//            if (identifyingCode.equals("1") && !captcha.equals(cap)) {
+            if (false) {
                 logger.info("验证码错误");
                 message = "验证码错误！";
                 map.put("error", message);

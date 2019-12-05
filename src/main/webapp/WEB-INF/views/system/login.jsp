@@ -27,10 +27,10 @@
     	  $("#login_main_errortip").html("请输入密码!");
     	  return false;
      }
-      if( $("#captcha").val()=="" ){
-    	   $("#login_main_errortip").html("请输入验证码!");
-    	  return false;
-     }
+     //  if( $("#captcha").val()=="" ){
+    	//    $("#login_main_errortip").html("请输入验证码!");
+    	//   return false;
+     // }
       
      if( $("#username").val().length>15 ){
     	  $("#login_main_errortip").html("请输入用户名!");
@@ -59,12 +59,12 @@
 				<div class="login_main_pw">
 					<input type="password" id="password" name="password" />
 				</div>
-				<div class="login_main_yzm"    >
+				<%--<div class="login_main_yzm"    >
 					  
 					<input type="text" id="captcha" name="captcha"/> 
 					<img alt="验证码" src="${ctx}/static/images/securityCode.jpg" title="点击更换" id="img_captcha" onclick="javascript:refreshCaptcha();"   />
 					 
-				</div>
+				</div>--%>
 				<div class="login_main_remb">
 					<input id="rm" name="rememberMe" type="hidden"/>  <!-- <label for="rm"><span>记住我</span></label> -->
 				</div>
