@@ -14,6 +14,7 @@ import com.ctl.utils.ConfigUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class DBUtil {
 
     public boolean do_update(String sql) throws Exception {
         try {
-            String dbPath = Constants.DATABASEPATH + ConfigUtils.getType("sqlite.db.path");
+            String dbPath = DBUtil.class.getClassLoader().getResource(File.separator) + ConfigUtils.getType("sqlite.db.path");
             ////logger.info("dbpath={}", dbPath);
             Class.forName("org.sqlite.JDBC");
             Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
@@ -52,7 +53,7 @@ public class DBUtil {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
-            String dbPath = Constants.DATABASEPATH + ConfigUtils.getType("sqlite.db.path");
+            String dbPath = DBUtil.class.getClassLoader().getResource(File.separator) + ConfigUtils.getType("sqlite.db.path");
             ////logger.info("dbpath={}", dbPath);
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
@@ -99,7 +100,7 @@ public class DBUtil {
         Connection conn = null;
         Integer var8;
         try {
-            String dbPath = Constants.DATABASEPATH + ConfigUtils.getType("sqlite.db.path");
+            String dbPath = DBUtil.class.getClassLoader().getResource(File.separator) + ConfigUtils.getType("sqlite.db.path");
             //logger.info("dbpath={}", dbPath);
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
