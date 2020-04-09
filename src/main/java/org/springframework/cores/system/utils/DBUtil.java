@@ -30,7 +30,7 @@ public class DBUtil {
 
     public boolean do_update(String sql) throws Exception {
         try {
-            String dbPath = DBUtil.class.getClassLoader().getResource(File.separator) + ConfigUtils.getType("sqlite.db.path");
+            String dbPath = Constants.DATABASEPATH + ConfigUtils.getType("sqlite.db.path");
             ////logger.info("dbpath={}", dbPath);
             Class.forName("org.sqlite.JDBC");
             Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
@@ -100,7 +100,7 @@ public class DBUtil {
         Connection conn = null;
         Integer var8;
         try {
-            String dbPath = DBUtil.class.getClassLoader().getResource(File.separator) + ConfigUtils.getType("sqlite.db.path");
+            String dbPath = Constants.DATABASEPATH + ConfigUtils.getType("sqlite.db.path");
             //logger.info("dbpath={}", dbPath);
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
