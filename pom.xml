@@ -436,6 +436,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>redismanager</finalName>
+    <finalName>redis</finalName>
   </build>
 </project>
